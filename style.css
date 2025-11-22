@@ -1,12 +1,13 @@
-/* Base Reset and Global Styles */
+/* MODERN CSS STYLING */
 :root {
-    --primary-color: #007bff; /* Professional blue for accents */
+    --primary-color: #3498db; /* Clean, professional blue */
+    --accent-color: #2c3e50; /* Darker accent for headers */
     --text-color: #333;
-    --bg-color: #f4f7f6;
-    --header-bg: #2c3e50; /* Darker header for contrast */
-    --header-text: #ffffff;
-    --section-bg: #ffffff;
-    --border-color: #ddd;
+    --light-text: #7f8c8d;
+    --bg-color: #ecf0f1; /* Very light gray background */
+    --card-bg: #ffffff;
+    --shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    --border-radius: 8px;
 }
 
 * {
@@ -16,194 +17,216 @@
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--bg-color);
-    padding-bottom: 50px; /* Space for the fixed footer */
 }
 
-/* Layout and Container */
 .container {
-    max-width: 900px;
+    max-width: 1100px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* Header Styling */
-.header {
-    background-color: var(--header-bg);
-    color: var(--header-text);
-    padding: 40px 0;
+/* --- HEADER / HERO SECTION --- */
+.hero-header {
+    background-color: var(--accent-color);
+    color: #ffffff;
+    padding: 50px 0 40px;
     margin-bottom: 30px;
 }
 
-.header h1 {
-    font-size: 2.5em;
-    font-weight: 700;
+.hero-header h1 {
+    font-size: 3em;
+    font-weight: 800;
     margin-bottom: 5px;
+    letter-spacing: 1px;
 }
 
-.header h2 {
+.role-title {
     font-size: 1.2em;
-    font-weight: 300;
-    margin-bottom: 15px;
-    color: #b4c9e1;
-}
-
-.contact-info span {
-    display: inline-block;
-    margin-right: 20px;
-    font-size: 0.9em;
-}
-
-.contact-info i {
+    font-weight: 400;
     color: var(--primary-color);
-    margin-right: 5px;
+    margin-bottom: 25px;
 }
 
-/* Section Styling */
-.section {
-    background-color: var(--section-bg);
+.contact-links a {
+    text-decoration: none;
+    color: #ffffff;
+    margin-right: 20px;
+    font-size: 0.95em;
+    transition: color 0.3s;
+}
+
+.contact-links a:hover {
+    color: var(--primary-color);
+}
+
+.contact-links i {
+    margin-right: 8px;
+}
+
+/* --- GRID LAYOUT --- */
+.grid-container {
+    display: grid;
+    /* Main Content (3 parts) and Sidebar (2 parts) */
+    grid-template-columns: 3fr 2fr;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.card {
+    background-color: var(--card-bg);
     padding: 30px;
-    margin-bottom: 25px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 .section-title {
-    color: var(--primary-color);
-    font-size: 1.6em;
-    border-bottom: 2px solid var(--border-color);
-    padding-bottom: 10px;
+    color: var(--accent-color);
+    font-size: 1.4em;
+    font-weight: 600;
+    border-bottom: 2px solid #ecf0f1;
+    padding-bottom: 12px;
     margin-bottom: 20px;
+    text-transform: uppercase;
 }
 
-/* Work Experience Styling */
-.job-entry {
-    margin-bottom: 25px;
-    padding-left: 15px;
-    border-left: 3px solid var(--primary-color);
+.icon-bullet {
+    color: var(--primary-color);
+    margin-right: 10px;
 }
 
-.job-entry h4 {
-    font-size: 1.1em;
-    color: #2c3e50;
-    margin-bottom: 3px;
-}
-
-.job-entry .date {
-    font-size: 0.9em;
-    color: #777;
-    margin-bottom: 10px;
-    font-style: italic;
-}
-
-.job-entry ul {
-    list-style: disc;
-    margin-left: 20px;
-    padding-left: 0;
-}
-
-.job-entry ul li {
-    margin-bottom: 5px;
-    font-size: 0.95em;
-}
-
-/* Skills List Styling */
-.skills-list, .tech-list {
-    list-style: none;
+/* --- SKILLS GRID (BADGES) --- */
+.skills-grid {
     display: flex;
     flex-wrap: wrap;
-    padding: 0;
+    gap: 10px;
 }
 
-.skills-list li {
-    background-color: #e6f0ff;
-    color: var(--primary-color);
-    padding: 8px 15px;
-    margin: 0 10px 10px 0;
-    border-radius: 5px;
-    font-size: 0.9em;
-    font-weight: 500;
-    transition: background-color 0.3s;
-}
-
-.skills-list li:hover {
+.skill-badge {
     background-color: var(--primary-color);
-    color: var(--header-text);
+    color: #ffffff;
+    padding: 8px 15px;
+    border-radius: 50px; /* Pill shape */
+    font-size: 0.9em;
+    font-weight: 600;
+    cursor: default;
+    transition: background-color 0.2s, transform 0.1s;
 }
 
-.skills-list i {
-    margin-right: 5px;
+.skill-badge:hover {
+    background-color: #2980b9; /* Slightly darker on hover */
+    transform: scale(1.03);
 }
 
-/* Technical Competencies List */
-.tech-list {
-    display: block; /* Stack items for tech list */
+/* --- WORK EXPERIENCE TIMELINE --- */
+.timeline {
+    position: relative;
+    padding-left: 20px;
 }
 
-.tech-list li {
-    margin-bottom: 8px;
-    font-size: 0.95em;
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background-color: #ccc;
+    border-radius: 2px;
 }
 
-.tech-list strong {
-    color: var(--primary-color);
+.timeline-item {
+    position: relative;
+    padding: 20px 20px 20px 30px;
+    margin-bottom: 30px;
+    border-left: none; /* Removed default border */
 }
 
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -27px;
+    top: 25px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    border: 3px solid var(--card-bg); /* Ring effect */
+    z-index: 1;
+}
 
-/* Education Styling */
-.education p {
+.timeline-item h4 {
+    color: var(--accent-color);
+    font-size: 1.15em;
     margin-bottom: 5px;
-    font-size: 1em;
 }
 
-/* Two-Column Layout for Technicals and Education */
-.two-column-layout {
-    display: flex;
-    gap: 20px;
+.timeline-date {
+    color: var(--light-text);
+    font-size: 0.9em;
+    display: block;
+    margin-bottom: 15px;
 }
 
-.two-column-layout .section {
-    flex: 1;
+.timeline-item ul {
+    list-style: disc;
+    margin-left: 20px;
+    font-size: 0.95em;
+    color: var(--light-text);
 }
 
-/* Footer Styling */
+/* --- FOOTER --- */
 .footer {
     text-align: center;
-    padding: 20px 0;
-    margin-top: 30px;
-    border-top: 1px solid var(--border-color);
-    color: #777;
-    font-size: 0.8em;
+    padding: 25px 0;
+    margin-top: 40px;
+    color: var(--light-text);
+    font-size: 0.9em;
+    border-top: 1px solid #ddd;
 }
 
-/* Media Queries for Responsiveness */
-@media (max-width: 768px) {
-    .header {
+/* --- RESPONSIVENESS (Crucial for Modern Design) --- */
+@media (max-width: 992px) {
+    .grid-container {
+        /* Collapse to single column on smaller screens */
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-header {
         padding: 30px 0;
     }
-
-    .header h1 {
+    
+    .hero-header h1 {
         font-size: 2em;
     }
-    
-    .contact-info {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
+
+    .role-title {
+        font-size: 1em;
     }
 
-    .contact-info span {
+    .contact-links {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .contact-links a {
         margin-right: 0;
     }
 
-    .skills-list {
-        justify-content: center;
-    }
-    
-    .two-column-layout {
-        flex-direction: column;
+    .card {
+        padding: 20px;
     }
 }
